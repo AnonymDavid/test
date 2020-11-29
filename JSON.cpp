@@ -103,10 +103,10 @@ JSON JSON::parseFromString(const std::string & text) {
 			else {
 				bool valueIsString = (value.find('\"') != std::string::npos);
 				
-    			std::cout << "before clean: key: " << key << "value: " << value << std::endl;
+    			std::cout << "before clean: key: " << key << " value: " << value << std::endl;
 				cleanJSONWord(key);
 				cleanJSONWord(value);
-    			std::cout << "after clean: key: " << key << "value: " << value << std::endl;
+    			std::cout << "after clean: key: " << key << " value: " << value << std::endl;
 				
 				if (valueIsString)
 					characterData[key] = value;
