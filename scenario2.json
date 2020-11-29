@@ -1,0 +1,5 @@
+{
+    "map" : "map2.txt",
+    "hero" : "Dark_Wanderer.json;1;1",
+    "monsters" : ["Blood_Raven.json;8;1"]
+}

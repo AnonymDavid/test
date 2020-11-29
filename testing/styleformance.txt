@@ -1,0 +1,96 @@
+Map.h:33:2: style: Class 'Map' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+ Map(const std::string filename);
+ ^
+Map.h:45:4: style: Class 'WrongIndexException' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+   WrongIndexException(const std::string& message) :std::runtime_error(message) {}
+   ^
+JSON.h:29:2: style: Class 'JSON' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+ JSON(jsonMap _jsonData):jsonData(_jsonData) {}
+ ^
+JSON.h:63:4: style: Class 'ParseException' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+   ParseException(const std::string& message) :std::runtime_error(message) {}
+   ^
+Hero.h:32:2: style: Class 'Hero' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+ Hero(Monster ch) :Monster(ch.getName(), ch.getMaxHealthPoints(), ch.getPhysicalDamage(), ch.getMagicalDamage(), ch.getAttackCoolDown(), ch.getDefense()),
+ ^
+Game.h:40:5: style: Class 'Game' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    Game(std::string mapfilename);
+    ^
+Game.h:54:4: style: Class 'OccupiedException' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+   OccupiedException(const std::string& message) :std::runtime_error(message) {}
+   ^
+Game.h:61:4: style: Class 'AlreadyHasHeroException' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+   AlreadyHasHeroException(const std::string& message) :std::runtime_error(message) {}
+   ^
+Game.h:68:4: style: Class 'AlreadyHasUnitsException' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+   AlreadyHasUnitsException(const std::string& message) :std::runtime_error(message) {}
+   ^
+Game.h:75:4: style: Class 'NotInitializedException' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+   NotInitializedException(const std::string& message) :std::runtime_error(message) {}
+   ^
+Game.h:82:4: style: Class 'GameAlreadyStartedException' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+   GameAlreadyStartedException(const std::string& message) :std::runtime_error(message) {}
+   ^
+Hero.h:59:14: style: The function 'attackEnemy' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+ virtual int attackEnemy(Monster& opponent);
+             ^
+Monster.h:118:14: note: Virtual function in base class
+ virtual int attackEnemy(Monster& opponent);
+             ^
+Hero.h:59:14: note: Function in derived class
+ virtual int attackEnemy(Monster& opponent);
+             ^
+Map.h:33:24: performance: Function parameter 'filename' should be passed by const reference. [passedByValue]
+ Map(const std::string filename);
+                       ^
+JSON.h:29:15: performance: Function parameter '_jsonData' should be passed by const reference. [passedByValue]
+ JSON(jsonMap _jsonData):jsonData(_jsonData) {}
+              ^
+Monster.h:27:22: performance: Function parameter '_name' should be passed by const reference. [passedByValue]
+ Monster(std::string _name, int _maxHP, int _physicalAttack, int _magicalAttack, double _cooldown, double _defense) :name(_name), maxHP(_maxHP), currentHP(_maxHP), attack({_physicalAttack, _magicalAttack}), cooldown(_cooldown), currentCooldown(_cooldown), defense(_defense)
+                     ^
+Hero.h:27:19: performance: Function parameter '_name' should be passed by const reference. [passedByValue]
+ Hero(std::string _name, int _maxHP, int _physicalAttack, int _magicalAttack, double _cooldown, double _defense, double _xpPerLevel, double _hpPerLevel, double _damagePerLevel, double _magicDamagePerLevel, double _cdMultiplierPerLevel, double _defenseBonusPerLevel)
+                  ^
+Hero.h:32:15: performance: Function parameter 'ch' should be passed by const reference. [passedByValue]
+ Hero(Monster ch) :Monster(ch.getName(), ch.getMaxHealthPoints(), ch.getPhysicalDamage(), ch.getMagicalDamage(), ch.getAttackCoolDown(), ch.getDefense()),
+              ^
+MarkedMap.h:34:5: style: Class 'MarkedMap' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    MarkedMap(const std::string filename);
+    ^
+PreparedGame.h:28:5: style: Class 'PreparedGame' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    PreparedGame(std::string fileName) {
+    ^
+PreparedGame.h:32:18: style: The function 'run' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+    virtual void run() { Game::run(); }
+                 ^
+Game.h:48:18: note: Virtual function in base class
+    virtual void run();
+                 ^
+PreparedGame.h:32:18: note: Function in derived class
+    virtual void run() { Game::run(); }
+                 ^
+MarkedMap.h:34:33: performance: Function parameter 'filename' should be passed by const reference. [passedByValue]
+    MarkedMap(const std::string filename);
+                                ^
+PreparedGame.h:28:30: performance: Function parameter 'fileName' should be passed by const reference. [passedByValue]
+    PreparedGame(std::string fileName) {
+                             ^
+Main.cpp:19:9: style: struct member 'characterData::x' is never used. [unusedStructMember]
+    int x;
+        ^
+Main.cpp:20:9: style: struct member 'characterData::y' is never used. [unusedStructMember]
+    int y;
+        ^
+Map.cpp:11:28: performance: Function parameter 'filename' should be passed by const reference. [passedByValue]
+Map::Map(const std::string filename){
+                           ^
+MarkedMap.cpp:4:40: performance: Function parameter 'filename' should be passed by const reference. [passedByValue]
+MarkedMap::MarkedMap(const std::string filename){
+                                       ^
+MarkedMap.cpp:58:20: style: Consider using std::copy_if algorithm instead of a raw loop. [useStlAlgorithm]
+            results.push_back(m);
+                   ^
+Monster.cpp:43:34: style: Parameter 'opponent' can be declared with const [constParameter]
+int Monster::takeDamage(Monster &opponent)
+                                 ^
