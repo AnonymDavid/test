@@ -19,6 +19,7 @@ void JSON::cleanJSONWord(std::string& text) {
 	}
 
 	if (qMarkCount % 2 != 0 || qMarkCount > 2){
+    std::cout << "qMarkCount error" << std::endl;
 		throw ParseException("Wrong JSON syntax!");
 	}
 
@@ -101,9 +102,11 @@ JSON JSON::parseFromString(const std::string & text) {
 			}
 			else {
 				bool valueIsString = (value.find('\"') != std::string::npos);
-
+				
+    			std::cout << "before clean: key: " << key << "value: " << value << std::endl;
 				cleanJSONWord(key);
 				cleanJSONWord(value);
+    			std::cout << "after clean: key: " << key << "value: " << value << std::endl;
 				
 				if (valueIsString)
 					characterData[key] = value;
